@@ -15,7 +15,7 @@ To compile `wcrt-test-sim.c`:
 
 ### Dependencias
 + libxml2
-+ gls - GNU Scientific Library
++ gsl - GNU Scientific Library
 
 # License
 This software is licensed under the MIT License. A copy of the license can be found in the `LICENSE` file.
