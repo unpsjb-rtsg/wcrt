@@ -3,10 +3,10 @@ Evaluation of exact schedulability methods.
 
 ## Overview
 The following exact schedulability methods are implemented:
-+ RTA, in "Improved Response-Time Analysis Calculations" (http://doi.ieeecomputersociety.org/10.1109/REAL.1998.739773)
-+ RTA2, in "Reduced computational cost in the calculation of worst case response time for real time systems" (http://sedici.unlp.edu.ar/handle/10915/9654)
-+ RTA3, in "Computational Cost Reduction for Real-Time Schedulability Tests Algorithms" (http://ieeexplore.ieee.org/document/7404899/)
-+ HET, in "Schedulability Analysis of Periodic Fixed Priority Systems" (http://ieeexplore.ieee.org/document/1336766/)
++ RTA, in [Improved Response-Time Analysis Calculations](http://doi.ieeecomputersociety.org/10.1109/REAL.1998.739773).
++ RTA2, in [Reduced computational cost in the calculation of worst case response time for real time systems](http://sedici.unlp.edu.ar/handle/10915/9654).
++ RTA3, in [Computational Cost Reduction for Real-Time Schedulability Tests Algorithms](http://ieeexplore.ieee.org/document/7404899/).
++ HET, in [Schedulability Analysis of Periodic Fixed Priority Systems](http://ieeexplore.ieee.org/document/1336766/).
 
 Implementations in C and Python are provided.
 
