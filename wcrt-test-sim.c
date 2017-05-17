@@ -640,7 +640,7 @@ int main(int argc, char **argv)
     int rts_sched_cnt = 0; 
     int rts_nonsched_cnt = 0;
 
-    // verifica que todos los metodos dieron el mismo resultado
+    // verify that all methods give the same result
     for (i = 0; i < rts_founded; i++) {
         struct rts_t *rts = rts_set->rts_list[i];        
 
