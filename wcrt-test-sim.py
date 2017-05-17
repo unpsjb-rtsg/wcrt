@@ -16,7 +16,8 @@ def test_rts(xml_file, start, count, rta_methods, args):
     event, root = context.__next__()
 
     rts_count = 0
-    rts_limit = start + (count - 1)
+    #rts_limit = start + (count - 1)
+    rts_limit = start + count
 
     rts_id, rts = 0, []
     rts_found = False
@@ -63,7 +64,7 @@ def test_rts(xml_file, start, count, rta_methods, args):
                         warn_flag = True
                         warn_list.append(rts_id)
                         print("Method {0} differs: {1} vs {2}".format(rta_method, rta_result[0], sched_check))
-                    if wcrt_check != rta_result[1] and rta_method != "het2":
+                    if wcrt_check != rta_result[1] and rta_method != "het":
                         warn_flag = True
                         warn_list.append(rts_id)
                         print("Some WCRT are not the same!!!")                                                            
@@ -368,6 +369,13 @@ def hdf_store(args, df):
         store.put(args.save_key, df, format='table', min_itemsize = {'values': 50})
 
 
+def print_result(df):
+    df_method_rts = df.groupby(["method", "rts_fu", "rts_id"], as_index=False).sum()    
+    df_method_rts_agg = df_method_rts.groupby(["method", "rts_fu"], as_index=False)[["ceils", "loops"]].agg([np.mean, np.max, np.min, np.median, np.std])
+    
+    print(df_method_rts_agg)
+
+
 def main():
     args = get_args()
 
@@ -385,8 +393,7 @@ def main():
             sys.stderr.write("Evaluating file : {0}\n".format(file))
 
         # evaluate the methods with the rts in file
-        rts_count, df_result = test_rts(
-            file, args.start, args.count, rta_methods, args)
+        rts_count, df_result = test_rts(file, args.start, args.count, rta_methods, args)
 
         if args.task_detail:
             # common column names
@@ -399,6 +406,8 @@ def main():
 
         # add DataFrame into list
         df_list.append(pd.DataFrame(df_result, columns=column_names))
+
+        print_result(pd.DataFrame(df_result, columns=column_names))
 
     # generate a DataFrame with the results
     df = pd.concat(df_list)
