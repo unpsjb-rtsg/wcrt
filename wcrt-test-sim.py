@@ -407,13 +407,13 @@ def main():
         # add DataFrame into list
         df_list.append(pd.DataFrame(df_result, columns=column_names))
 
-        print_result(pd.DataFrame(df_result, columns=column_names))
-
     # generate a DataFrame with the results
     df = pd.concat(df_list)
 
     if args.save:
         hdf_store(args, df)
+    else:
+        print_result(df)
     
 
 if __name__ == '__main__':
