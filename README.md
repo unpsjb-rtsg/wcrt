@@ -8,7 +8,7 @@ The following exact schedulability methods are implemented:
 + RTA3, in [Computational Cost Reduction for Real-Time Schedulability Tests Algorithms](http://ieeexplore.ieee.org/document/7404899/).
 + HET, in [Schedulability Analysis of Periodic Fixed Priority Systems](http://ieeexplore.ieee.org/document/1336766/).
 
-Implementations in C and Python are provided.
+C and Python implementations are provided.
 
 ## Python version
 Requires Python3. This script outputs its results into a HDFS store.
