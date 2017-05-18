@@ -370,10 +370,9 @@ def hdf_store(args, df):
 
 
 def print_result(df):
-    df_method_rts = df.groupby(["method", "rts_fu", "rts_id"], as_index=False).sum()    
-    df_method_rts_agg = df_method_rts.groupby(["method", "rts_fu"], as_index=False)[["ceils", "loops"]].agg([np.mean, np.max, np.min, np.median, np.std])
-    
-    print(df_method_rts_agg)
+    df_method_rts = df.groupby(["method", "rts_fu", "rts_id"], as_index=False).sum()
+    df_method_rts_agg = df_method_rts.groupby(["method", "rts_fu"])[["ceils", "loops"]].agg([np.mean, np.max, np.min, np.median, np.std])    
+    print(df_method_rts_agg.select(lambda x: x[1] in ['mean', 'std'], axis=1))
 
 
 def main():
